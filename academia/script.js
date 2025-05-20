@@ -1,12 +1,14 @@
 const form = document.getElementById("formAluno");
 const tabela = document.querySelector("#tabelaAlunos tbody");
-const toggleFormBtn = document.getElementById("toggleForm");
+const btnToggleForm = document.getElementById("btnToggleForm");
+const btnToggleTabela = document.getElementById("btnToggleTabela");
+const secaoTabela = document.getElementById("secaoTabela");
 const matriculaInput = document.getElementById("matricula");
 
 let alunos = JSON.parse(localStorage.getItem("alunos")) || [];
 let graficoPlanos;
 
-// Gera matrícula automaticamente
+// Gera número de matrícula automática
 function gerarMatricula() {
   const maior = alunos.reduce((max, aluno) => {
     const num = parseInt(aluno.matricula);
@@ -49,7 +51,9 @@ function atualizarGraficoPlanos() {
     options: {
       responsive: true,
       plugins: {
-        legend: { position: 'bottom' }
+        legend: {
+          position: 'bottom'
+        }
       }
     }
   };
@@ -78,7 +82,7 @@ function renderizarTabela() {
 
   atualizarEstatisticas();
   atualizarGraficoPlanos();
-  matriculaInput.value = gerarMatricula(); // Atualiza matrícula automática
+  matriculaInput.value = gerarMatricula(); // Preenche nova matrícula automaticamente
 }
 
 form.addEventListener("submit", function (e) {
@@ -120,12 +124,19 @@ function removerAluno(index) {
   }
 }
 
-// Oculta ou mostra o formulário de cadastro
-toggleFormBtn.addEventListener("click", () => {
+// Mostrar/Ocultar formulário
+btnToggleForm.addEventListener("click", () => {
   form.classList.toggle("oculto");
   const visivel = !form.classList.contains("oculto");
-  toggleFormBtn.textContent = visivel ? "Ocultar Cadastro" : "Mostrar Cadastro";
+  btnToggleForm.textContent = visivel ? "📋 Cadastro de Aluno" : "📋 Mostrar Cadastro";
 });
 
-// Inicializa tudo
+// Mostrar/Ocultar tabela de alunos
+btnToggleTabela.addEventListener("click", () => {
+  secaoTabela.classList.toggle("oculto");
+  const visivel = !secaoTabela.classList.contains("oculto");
+  btnToggleTabela.textContent = visivel ? "👥 Alunos" : "👥 Mostrar Alunos";
+});
+
+// Inicializa a interface
 renderizarTabela();

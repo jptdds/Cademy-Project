@@ -6,46 +6,61 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Gerenciamento de Academia</h1>
+  <div class="container">
+    <!-- MENU LATERAL -->
+    <nav class="sidebar">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#">🏠 Início</a></li>
+        <li><a href="#" id="btnToggleForm">📋 Cadastro de Aluno</a></li>
+        <li><a href="#">🗓️ Datas</a></li>
+        <li><a href="#" id="btnToggleTabela">👥 Alunos</a></li>
+      </ul>
+    </nav>
 
-  <!-- Estatísticas -->
-  <div id="estatisticas" class="cards-container">
-    <div class="card total">Total de Alunos: <span id="totalAlunos">0</span></div>
-    <div class="card planos">Planos únicos: <span id="planosUnicos">0</span></div>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+      <h1>Gerenciamento de Academia</h1>
+
+      <!-- Estatísticas -->
+      <div id="estatisticas" class="cards-container">
+        <div class="card total">Total de Alunos: <span id="totalAlunos">0</span></div>
+        <div class="card planos">Planos únicos: <span id="planosUnicos">0</span></div>
+      </div>
+
+      <!-- Formulário -->
+      <form id="formAluno" class="form-visivel">
+        <input type="text" id="nome" placeholder="Nome" required>
+        <input type="number" id="idade" placeholder="Idade" required>
+        <input type="text" id="plano" placeholder="Plano" required>
+        <input type="text" id="matricula" placeholder="Matrícula" readonly>
+        <button type="submit">Salvar</button>
+      </form>
+
+      <!-- Tabela -->
+      <section id="secaoTabela">
+        <h2>Alunos Cadastrados</h2>
+        <table id="tabelaAlunos">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Idade</th>
+              <th>Plano</th>
+              <th>Matrícula</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- Gráfico -->
+      <h2>Distribuição de Planos</h2>
+      <div class="grafico-container">
+        <canvas id="graficoPlanos" width="300" height="300"></canvas>
+      </div>
+    </main>
   </div>
-
-  <!-- Botão para mostrar/ocultar formulário -->
-  <div class="toggle-container">
-    <button id="toggleForm">Ocultar Cadastro</button>
-  </div>
-
-  <!-- Formulário -->
-  <form id="formAluno" class="form-visible">
-    <input type="text" id="nome" placeholder="Nome" required>
-    <input type="number" id="idade" placeholder="Idade" required>
-    <input type="text" id="plano" placeholder="Plano" required>
-    <input type="text" id="matricula" placeholder="Matrícula" readonly>
-    <button type="submit">Salvar</button>
-  </form>
-
-  <!-- Tabela -->
-  <h2>Alunos Cadastrados</h2>
-  <table id="tabelaAlunos">
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Idade</th>
-        <th>Plano</th>
-        <th>Matrícula</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <!-- Gráfico -->
-  <h2>Distribuição de Planos</h2>
-  <canvas id="graficoPlanos" width="400" height="200"></canvas>
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
