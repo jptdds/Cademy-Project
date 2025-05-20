@@ -7,15 +7,28 @@
 </head>
 <body>
   <h1>Gerenciamento de Academia</h1>
-  
-  <form id="formAluno">
+
+  <!-- Estatísticas -->
+  <div id="estatisticas" class="cards-container">
+    <div class="card total">Total de Alunos: <span id="totalAlunos">0</span></div>
+    <div class="card planos">Planos únicos: <span id="planosUnicos">0</span></div>
+  </div>
+
+  <!-- Botão para mostrar/ocultar formulário -->
+  <div class="toggle-container">
+    <button id="toggleForm">Ocultar Cadastro</button>
+  </div>
+
+  <!-- Formulário -->
+  <form id="formAluno" class="form-visible">
     <input type="text" id="nome" placeholder="Nome" required>
     <input type="number" id="idade" placeholder="Idade" required>
     <input type="text" id="plano" placeholder="Plano" required>
-    <input type="text" id="matricula" placeholder="Matrícula" required>
+    <input type="text" id="matricula" placeholder="Matrícula" readonly>
     <button type="submit">Salvar</button>
   </form>
 
+  <!-- Tabela -->
   <h2>Alunos Cadastrados</h2>
   <table id="tabelaAlunos">
     <thead>
@@ -30,6 +43,12 @@
     <tbody></tbody>
   </table>
 
+  <!-- Gráfico -->
+  <h2>Distribuição de Planos</h2>
+  <canvas id="graficoPlanos" width="400" height="200"></canvas>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
