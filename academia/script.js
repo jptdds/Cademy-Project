@@ -1,3 +1,18 @@
+// Login simples
+function verificarLogin() {
+  const usuario = document.getElementById("usuario").value;
+  const senha = document.getElementById("senha").value;
+  const mensagemErro = document.getElementById("mensagemErro");
+
+  if (usuario === "usuario" && senha === "senha") {
+    document.getElementById("telaLogin").classList.add("oculto");
+    document.getElementById("sistema").classList.remove("oculto");
+    renderizarTabela();
+  } else {
+    mensagemErro.textContent = "Usuário ou senha incorretos.";
+  }
+}
+
 const form = document.getElementById("formAluno");
 const tabela = document.querySelector("#tabelaAlunos tbody");
 const btnToggleForm = document.getElementById("btnToggleForm");

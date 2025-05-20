@@ -168,3 +168,41 @@ button.acao.excluir:hover {
   max-width: 400px;
   margin-top: 20px;
 }
+.tela-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #ecf0f1;
+}
+
+.tela-login input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+.tela-login button {
+  padding: 10px 20px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tela-login button:hover {
+  background-color: #1e8449;
+}
+
+.erro {
+  color: red;
+  margin-top: 10px;
+}
+
+.oculto {
+  display: none !important;
+}
